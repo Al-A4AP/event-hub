@@ -23,9 +23,11 @@ const ProtectedRoute = ({ children, requiredRole, redirectTo = '/login' }: Prote
 
   if (!isAuthenticated) return <Navigate to={redirectTo} replace />;
 
-  if (requiredRole && user?.role !== requiredRole) {
+  // ADMIN can access every page regardless of requiredRole
+  if (requiredRole && user?.role !== requiredRole && user?.role !== 'ADMIN') {
     return <Navigate to="/" replace />;
   }
+
 
   return <>{children}</>;
 };

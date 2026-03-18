@@ -6,10 +6,11 @@ interface User {
   id: number;
   name: string;
   email: string;
-  role: 'CUSTOMER' | 'ORGANIZER';
+  role: 'CUSTOMER' | 'ORGANIZER' | 'ADMIN';
   referralCode: string;
   avatar?: string;
 }
+
 
 interface AuthContextType {
   user: User | null;
